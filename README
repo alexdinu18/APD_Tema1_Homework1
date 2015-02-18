@@ -1,0 +1,44 @@
+Dinu Marian Alexandru
+Grupa 334 CC
+Tema 1
+APD
+
+Rezultatele obtinute in urma testarii pe fep:
+
+Nr. threads	|	Plan	|	Toroid	|	N
+------------|-----------|-----------|---------
+	1		|	0.599s	|	0.529s	|	1000
+	2		|	0.337s	|	0.285s	|	1000
+	4		|	0.399s	|	0.361s	|	1000
+	8		|	0.488s	|	0.439s	|	1000
+
+
+Detalii implementare:
+
+Main:
+
+	La inceput verific ca numarul de parametri sa fie cel corect,
+	daca nu, atunci se iese fortat din program.
+	Apoi citesc matricea din fisier tinand cont daca nu cumva
+	W < W_harta si/sau H < Harta.
+	In functie de "P" sau "T" gasiti in fiser, apelez functia corespunzatoare,
+	apoi o decupez pana la cel mai indepartat "1" pornind din stanga sus si
+	apoi o scriu in fisierul de output. Am paralelizat umplerea cu zerouri a
+	matricii initiale si decuparea de dinaintea scrierii in fisier.
+
+Plan:
+
+	Parcurg matricea de N ori, aplicand mereu regulile jocului si actualizand
+	matricea curenta si matricea previous. Am paralelizat operatiile care mi se
+	pareau cele mai costisitoare din punct de vedere al timpului si anume actualizarea
+	matricei previous (2 for-uri imbricate) si actualizarea matricii curente (2 for-uri
+	imbricate).
+
+Toroid:
+
+	Parcurg matricea de N ori, aplicand mereu regulile jocului si actualizand
+	matricea curenta si matricea previous. La fiecare pas calculez coordonatele 
+	noilor indici daca acestia ies din matricea initiala. Am paralelizat operatiile care mi se
+	pareau cele mai costisitoare din punct de vedere al timpului si anume actualizarea
+	matricei previous (2 for-uri imbricate) si actualizarea matricii curente (2 for-uri
+	imbricate).
